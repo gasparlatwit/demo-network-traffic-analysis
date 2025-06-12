@@ -28,10 +28,10 @@ loss_parallel = extract_loss_percent(data_parallel)
 time = list(range(1, len(t_single) + 1))
 
 
-# === throuoghput ===
+# === plot ===
 fig, ax1 = plt.subplots(figsize=(10, 6))
 
-# Primary Y-axis: Throughput
+#  Throughput
 ax1.plot(time, t_single, label='Throughput: Single', color='blue', marker='o')
 ax1.plot(time, t_qos, label='Throughput: QoS Changed', color='red', marker='s')
 ax1.plot(time, t_parallel, label='Throughput: Parallel (4)', color='purple', marker='x')
@@ -40,7 +40,7 @@ ax1.set_ylabel('Throughput (Mbps)', color='black')
 ax1.tick_params(axis='y', labelcolor='black')
 ax1.grid(True)
 
-# Secondary Y-axis: Packet Loss %
+# Packet Loss
 ax2 = ax1.twinx()
 ax2.axhline(loss_single, color='blue', linestyle='dotted', label=f'Loss: Single ({loss_single:.1f}%)')
 ax2.axhline(loss_qos, color='red', linestyle='dotted', label=f'Loss: QoS Changed ({loss_qos:.1f}%)')
